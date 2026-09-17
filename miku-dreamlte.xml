@@ -16,13 +16,13 @@
       path="build/make"
       name="birowsi/platform_build"
       remote="hanbi-github"
-      revision="miku-snowland" />
+      revision="17ad74ce5cf1e1be70ab050a6c3944034629cf9c" />
 
   <project
       path="device/miku/sepolicy"
       name="birowsi/platform_device_miku_sepolicy"
       remote="hanbi-github"
-      revision="miku-snowland" />
+      revision="ba8f3ad8ea34e06b5ab5c62b9c9011c97e56b2f6" />
 
   <!-- Legacy DT boot header support required by Exynos 8895. -->
   <remove-project name="platform/system/tools/mkbootimg" />
@@ -48,13 +48,13 @@
       path="device/samsung/dreamlte"
       name="birowsi/android_device_samsung_dreamlte"
       remote="hanbi-github"
-      revision="miku-snowland" />
+      revision="206f85663cb1d390da92e12beabbdde0cc590333" />
 
   <project
       path="device/samsung/universal8895-common"
       name="birowsi/android_device_samsung_universal8895-common"
       remote="hanbi-github"
-      revision="miku-snowland" />
+      revision="679921218a25280590a0a79910c2456dc153c814" />
 
   <!-- Samsung Exynos 8895 dependencies. -->
   <project

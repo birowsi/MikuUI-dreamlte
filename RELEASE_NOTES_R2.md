@@ -24,4 +24,4 @@ TWRP recovery for the Galaxy S8.
 - `SHA256SUMS`
 
 GApps are included. This build is for `dreamlte` only and has been tested on the
-SM-G950N.
+SM-G950N. SIM detection, calls, SMS/MMS and LTE data have not yet been tested.

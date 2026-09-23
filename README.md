@@ -37,8 +37,9 @@ Verified on the SM-G950N:
 - USB ADB and MTP
 - TWRP decryption/data access, ADB, MTP and battery reporting
 
-GPS and NFC have not received a complete field test. Cellular service is not
-supported by this port.
+GPS and NFC have not received a complete field test. SIM detection, calls,
+SMS/MMS and LTE data are included in the build but have not been tested on the
+final release.
 
 ## Google Photos
 

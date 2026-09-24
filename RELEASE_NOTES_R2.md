@@ -16,6 +16,8 @@ TWRP recovery for the Galaxy S8.
 - Dirty update from r1 with user data preserved
 - Google Photos unlimited backup display and a real backup without storage quota
   deduction
+- GPS/GNSS positioning and heading
+- NFC tag reading
 - TWRP ADB, bidirectional Windows MTP, battery status and SELinux Enforcing
 
 ### Files

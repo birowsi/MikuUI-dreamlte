@@ -35,11 +35,12 @@ Verified on the SM-G950N:
 - Speaker, microphone and wired headset
 - Wired and wireless charging
 - USB ADB and MTP
+- GPS/GNSS positioning and heading
+- NFC tag reading
 - TWRP decryption/data access, ADB, MTP and battery reporting
 
-GPS and NFC have not received a complete field test. SIM detection, calls,
-SMS/MMS and LTE data are included in the build but have not been tested on the
-final release.
+SIM detection, calls, SMS/MMS and LTE data are included in the build but have
+not been tested on the final release.
 
 ## Google Photos
 

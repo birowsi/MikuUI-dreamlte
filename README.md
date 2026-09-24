@@ -9,6 +9,8 @@ ROM packages and checksums are available on the
 [Releases](https://github.com/birowsi/MikuUI-dreamlte/releases) page. GApps are
 included; do not install another GApps package.
 
+Development and support: [XDA Forums](https://xdaforums.com/t/rom-unofficial-12l-miku-ui-snowland-for-s8.4802675/)
+
 The ROM includes TWRP `3.7.1_12-miku`. A standalone build without Miku branding
 is maintained in
 [`twrp_android_device_samsung_dreamlte`](https://github.com/birowsi/twrp_android_device_samsung_dreamlte).

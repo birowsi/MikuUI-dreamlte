@@ -52,7 +52,7 @@
       path="device/samsung/dreamlte"
       name="birowsi/android_device_samsung_dreamlte"
       remote="hanbi-github"
-      revision="74ab86e1b54adf6cc6777efd4bf9f0d426d493fb" />
+      revision="594fb5b814c04cee38b55b13ca03a18043bf0884" />
 
   <project
       path="device/samsung/universal8895-common"

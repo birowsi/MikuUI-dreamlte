@@ -1,87 +1,83 @@
 # Miku UI Snowland for Galaxy S8
 
-An Android 12L port of Miku UI Snowland for the Exynos Galaxy S8 (`dreamlte`).
-The current release is built and tested on the Korean SM-G950N.
+Unofficial Android 12L port of Miku UI Snowland for the Exynos Galaxy S8
+(`dreamlte`). I build and test it on a Korean SM-G950N.
+
+XDA thread: [Miku UI Snowland for S8](https://xdaforums.com/t/rom-unofficial-12l-miku-ui-snowland-for-s8.4802675/)
 
 ## Downloads
 
-ROM packages and checksums are available on the
-[Releases](https://github.com/birowsi/MikuUI-dreamlte/releases) page. GApps are
-included; do not install another GApps package.
+Grab the ZIP and `SHA256SUMS` from
+[Releases](https://github.com/birowsi/MikuUI-dreamlte/releases). GApps are
+already in the ZIP, so don't flash another GApps package on top.
 
-Development and support: [XDA Forums](https://xdaforums.com/t/rom-unofficial-12l-miku-ui-snowland-for-s8.4802675/)
-
-The ROM includes TWRP `3.7.1_12-miku`. A standalone build without Miku branding
-is maintained in
+The ROM ships TWRP `3.7.1_12-miku` and keeps it as the recovery after Android
+boots. If you just want the recovery without the Miku tag, use the standalone
+build from
 [`twrp_android_device_samsung_dreamlte`](https://github.com/birowsi/twrp_android_device_samsung_dreamlte).
 
-## Device support
+## Supported device
 
-- Samsung Galaxy S8
-- Codename: `dreamlte`
-- Tested model: `SM-G950N`
-- Exynos 8895
-- Legacy A-only partition layout
+Galaxy S8, Exynos 8895, codename `dreamlte`. Only the SM-G950N has been tested.
 
-Do not install this build on `dream2lte`, Snapdragon models, or any device other
-than `dreamlte`.
+Not for `dream2lte` (S8+), Snapdragon S8 models or anything else. The partition
+layout is the stock A-only one and nothing gets repartitioned.
 
-## Hardware status
+## What works
 
-Verified on the SM-G950N:
+Tested on my SM-G950N:
 
-- Display, touch, brightness, rotation and vibration
-- Wi-Fi and Bluetooth
-- Front and rear cameras, including flash
-- Fingerprint reader
-- Speaker, microphone and wired headset
+- Display, touch, brightness, auto-rotate, vibration
+- Wi-Fi, Bluetooth
+- Front and rear cameras, flash
+- Fingerprint
+- Speaker, microphone, wired headset
 - Wired and wireless charging
-- USB ADB and MTP
-- GPS/GNSS positioning and heading
+- ADB and MTP
+- GPS (position fix and heading)
 - NFC tag reading
-- TWRP decryption/data access, ADB, MTP and battery reporting
+- TWRP: data access, ADB, MTP both ways, battery level
 
-SIM detection, calls, SMS/MMS and LTE data are included in the build but have
-not been tested on the final release.
+## Not tested yet
 
-## Google Photos
+SIM detection, calls, SMS/MMS and LTE data. The radio stack is in the build,
+I just haven't had a SIM in the phone on this release. If you try it, please
+report back on XDA either way.
 
-Google Photos receives a Pixel XL (`marlin`) identity inside the Photos process.
-Other Google apps keep Snowland's standard Pixel profile. The current Google
-Photos release shows the unlimited backup benefit, completes backups, and does
-not deduct the uploaded photo from the account storage quota.
+## Things to know
 
-This behavior depends on Google Photos and can change after an app or server-side
+**This is a `userdebug` build.** `adb root` works whenever USB debugging is on,
+which gives a root shell to any computer you've authorized for debugging. Keep
+USB debugging off when you're not using it.
+
+**Google Photos** sees the phone as a Pixel XL (`marlin`). This only applies
+inside the Photos app, other Google apps get Snowland's usual Pixel profile.
+Right now Photos shows unlimited backup and uploads don't count against storage.
+That's up to Google, though, and could stop working after an app or server
 update.
 
-## Installation
+## Installing
 
-Back up anything important before changing ROMs.
+Back up first.
 
-For a first installation:
+Coming from another ROM:
 
-1. Boot a compatible TWRP build.
-2. Use **Format Data** and confirm the format.
+1. Boot TWRP.
+2. Format Data (the one where you type `yes`).
 3. Flash the ROM ZIP.
-4. Reboot to Android.
+4. Reboot.
 
-For an update from an earlier build of this port, flash the new ZIP without
-formatting data. The latest release was tested as a dirty flash and preserved
-installed apps and user data.
-
-No repartitioning is required.
+Updating from an earlier build of this port: flash the new ZIP in TWRP without
+formatting. The r1 → r2 dirty flash kept all my apps and data.
 
 ## Building
 
 ```bash
-mkdir -p ~/miku
-cd ~/miku
-
+mkdir -p ~/miku && cd ~/miku
 repo init -u https://github.com/Miku-UI/manifesto -b snowland
 
 mkdir -p .repo/local_manifests
-curl -L \
-  https://raw.githubusercontent.com/birowsi/MikuUI-dreamlte/main/miku-dreamlte.xml \
+curl -L https://raw.githubusercontent.com/birowsi/MikuUI-dreamlte/main/miku-dreamlte.xml \
   -o .repo/local_manifests/dreamlte.xml
 
 repo sync -c -j$(nproc) --force-sync --no-clone-bundle --no-tags
@@ -91,20 +87,22 @@ lunch miku_dreamlte-userdebug
 m -j$(nproc) diva
 ```
 
-The completed ZIP is written to `out/target/product/dreamlte/`.
+The ZIP ends up in `out/target/product/dreamlte/`.
 
-## Source
+## Sources
 
-- [dreamlte device tree](https://github.com/birowsi/android_device_samsung_dreamlte)
-- [Exynos 8895 common tree](https://github.com/birowsi/android_device_samsung_universal8895-common)
-- [Miku frameworks/base](https://github.com/birowsi/platform_frameworks_base)
-- [Samsung hardware support](https://github.com/birowsi/android_hardware_samsung)
-- [Build system](https://github.com/birowsi/platform_build)
-- [Miku SELinux policy](https://github.com/birowsi/platform_device_miku_sepolicy)
+- [Device tree](https://github.com/birowsi/android_device_samsung_dreamlte)
+- [universal8895 common tree](https://github.com/birowsi/android_device_samsung_universal8895-common)
+- [Kernel](https://github.com/8890q/android_kernel_samsung_universal8895)
+- [Vendor blobs](https://github.com/8890q/proprietary_vendor_samsung)
+- [frameworks/base](https://github.com/birowsi/platform_frameworks_base)
+- [hardware/samsung](https://github.com/birowsi/android_hardware_samsung)
+- [build/make](https://github.com/birowsi/platform_build)
+- [Miku sepolicy](https://github.com/birowsi/platform_device_miku_sepolicy)
 
-Exact source revisions are pinned in [`miku-dreamlte.xml`](./miku-dreamlte.xml).
+Every repo is pinned to an exact commit in
+[`miku-dreamlte.xml`](./miku-dreamlte.xml).
 
 ## Credits
 
-Miku UI, LineageOS, TeamWin, 8890q, Ivan Meler and the Android Open Source
-Project.
+Miku UI, LineageOS, TeamWin, 8890q, Ivan Meler, AOSP.
